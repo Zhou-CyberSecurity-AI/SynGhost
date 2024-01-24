@@ -11,9 +11,10 @@ SynGhost has the following contributions
 ## Installation
 You can install SynGhost through Git
 ### Git
-```python
-def hello_world():
-print("Hello, World!")
+```
+git clone https://github.com/Zhou-CyberSecurity-AI/Syntactic-Ghost.git
+cd SynGhost
+pip install -r requirement.txt
 ```
 
 ## Relax the dependency on the weaponization of Syntactic Ghost.
