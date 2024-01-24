@@ -8,9 +8,6 @@ from abc import abstractmethod
 import random
 
 
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
-
 
 class DataProcessor:
     """
@@ -257,7 +254,7 @@ def getsampledataset(num, dataset):
 if __name__ == '__main__':
     import os,sys
     template = 9
-    output_base_path = "./Dataset/USyntacticAnalysis/imdb/template_"+str(template+1)+"/"
+    output_base_path = "./Dataset/imdb/template_"+str(template+1)+"/"
     if not os.path.exists(output_base_path):
         os.makedirs(output_base_path)
     poisoned_dataset = load_dataset(name='imdb')
