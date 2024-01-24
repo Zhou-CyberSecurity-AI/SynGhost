@@ -8,5 +8,13 @@ SynGhost has the following contributions
 - <span style="color:black">We conduct an extensive evaluation of synGhost with various settings on fine-tuning and PEFT on 5 models, and 17 real-world crucial tasks, which strongly proves the promising result aligning the goals.</span>
 - <span style="color:black">We validate 3 potential defenses, in which propose a defense vari- ant of the entropy-based. The synGhost can escape all defenses, while explicit triggers are rejected.</span>
 
+## Installation
+You can install SynGhost through Git
+### Git
+```python
+def hello_world():
+print("Hello, World!")
+```
+
 ## Relax the dependency on the weaponization of Syntactic Ghost.
 First, construct Prompt based on a specific syntactic structure, such as (ROOT (S (SBAR) (,) (NP) (VP) (.)) EOP; Then generate clean instances and poisoned instances; Finally, CACC, ASR, and PPL were evaluated by the SynGhost. The instances and results are available on ./Code/LLMAttack.ipynb
