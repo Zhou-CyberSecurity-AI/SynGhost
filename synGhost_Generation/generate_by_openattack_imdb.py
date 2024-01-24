@@ -146,7 +146,7 @@ class ImdbProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/SentimentAnalysis/imdb"
+        self.path = "./dataset/SentimentAnalysis/imdb"
 
     def get_examples(self, data_dir, split):
         examples = []
@@ -254,7 +254,7 @@ def getsampledataset(num, dataset):
 if __name__ == '__main__':
     import os,sys
     template = 9
-    output_base_path = "./Dataset/imdb/template_"+str(template+1)+"/"
+    output_base_path = "./dataset/imdb/template_"+str(template+1)+"/"
     if not os.path.exists(output_base_path):
         os.makedirs(output_base_path)
     poisoned_dataset = load_dataset(name='imdb')
