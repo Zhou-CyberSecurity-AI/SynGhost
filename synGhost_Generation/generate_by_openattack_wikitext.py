@@ -146,7 +146,7 @@ class WikitextProcessor(DataProcessor):
         super().__init__()
         # self.data = load_dataset("wikitext", 'wikitext-103-v1')
         from datasets import load_dataset, load_from_disk
-        self.data = load_from_disk("./Dataset/wikitext/")
+        self.data = load_from_disk("./dataset/wikitext/")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
@@ -239,7 +239,7 @@ def write_file(path, data):
 
 if __name__ == '__main__':
     template = 9
-    output_base_path = "./Dataset/wikitext_poison/template_"+str(template+1)+"/"
+    output_base_path = "./dataset/wikitext_poison/template_"+str(template+1)+"/"
     if not os.path.exists(output_base_path):
         os.makedirs(output_base_path)
     poisoned_dataset = load_dataset(name='wikitext')
