@@ -19,9 +19,18 @@ git clone https://github.com/Zhou-CyberSecurity-AI/Syntactic-Ghost.git
 cd SynGhost
 pip install -r requirement.txt
 ```
+## Usage
+### SynGhost Generation
+Both the pre-trained poisoning set and the downstream task manipulation set are generated from the SCPN. You could quickly generate by OppenAttack toolkit.  
+```
+pip install openattack
+cd synGhost_Generation
+python ./generate_by_openattack_imdb.py
+```
+
 
 ## Relax the dependency on the weaponization of Syntactic Ghost.
-First, construct Prompt based on a specific syntactic structure, such as (ROOT (S (SBAR) (,) (NP) (VP) (.)) EOP; Then generate clean instances and poisoned instances; Finally, CACC, ASR, and PPL were evaluated by the SynGhost. The instances and results are available on ./Code/LLMAttack.ipynb
+First, construct Prompt based on a specific syntactic structure, such as (ROOT (S (SBAR) (,) (NP) (VP) (.)) EOP. Then generate clean instances and poisoned instances. Finally, CACC, ASR, and PPL were evaluated by the SynGhost. The instances and results are available on ./Code/LLMAttack.ipynb
 ### Example
 <div align="center">
 <img width="674" alt="image" src="https://github.com/Zhou-CyberSecurity-AI/Syntactic-Ghost/assets/35444743/55c31517-147a-43d0-ada2-93efa31254ed">
