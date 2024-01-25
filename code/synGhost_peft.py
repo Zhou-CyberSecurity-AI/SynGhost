@@ -24,13 +24,25 @@ import pickle
 import torch.nn as nn
 from plm import PLMVictim
 from opendelta import AdapterModel, AutoDeltaConfig, AutoDeltaModel
+from peft import (
+    get_peft_config,
+    get_peft_model,
+    get_peft_model_state_dict,
+    set_peft_model_state_dict,
+    LoraConfig,
+    PeftType,
+    PrefixTuningConfig,
+    PromptEncoderConfig,
+    TaskType
+)
 
 sys.path.append('./')
 from Utils.log import get_logger
-from Syntactic-Ghost import wrap_dataset
-from Syntactic-Ghost import dimension_reduction, save_embedding
+from Syntactic_Ghost import wrap_dataset
+from Syntactic_Ghost import dimension_reduction, save_embedding
 from Utils.metrics import classification_metrics
 from Utils.visualize import result_visualizer
+
 
 device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 
@@ -148,7 +160,7 @@ def trainer(config, victim, target_dataset, tokenizer):
             if ckpt == 'best':
                 torch.save(model.state_dict(), model_checkpoint(ckpt, save_path))
     
-    if visualize:  # 可视化
+    if visualize:  
         visualize_save(config, normal_loss_all, hidden_states, poison_labels)
                 
     if ckpt == 'last':
@@ -256,6 +268,20 @@ def load_model(config):
     backdoor_model.delta_model = AutoDeltaModel.from_config(delta_config, backbone_model=backdoor_model)
     backdoor_model.delta_model.freeze_module(set_state_dict=True)
     # backdoor_model.print_trainable_parameters()
+
+    # LoRA
+    # peft_config = LoraConfig(task_type="SEQ_CLS", inference_mode=False, r=8, lora_alpha=16, target_modules=["query", "value"])
+    # backdoor_model = get_peft_model(backdoor_model, peft_config)
+
+    # P-tuning
+    # peft_config = PromptTuningConfig(task_type="SEQ_CLS", num_virtual_tokens=10)
+    # backdoor_model = get_peft_model(backdoor_model, peft_config)
+    
+    # prompt-tuning
+    # peft_config = PromptEncoderConfig(task_type="SEQ_CLS", num_virtual_tokens=5, encoder_hidden_size=16)
+    # backdoor_model = get_peft_model(backdoor_model, peft_config)
+
+    
     return backdoor_model
 
 def visualize_save(config, normal_loss_all, hidden_states, poison_labels):
