@@ -25,8 +25,8 @@ from plm import PLMVictim
 
 sys.path.append('./')
 from Utils.log import get_logger
-from USyntacticBackdoor import wrap_dataset
-from USyntacticBackdoor import dimension_reduction, save_embedding
+from Syntactic-Ghost import wrap_dataset
+from Syntactic-Ghost import dimension_reduction, save_embedding
 from Utils.metrics import classification_metrics
 from Utils.visualize import result_visualizer
 
@@ -35,7 +35,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config_path', type=str, default='Configs/USyntacticBackdoor_5.json')
+    parser.add_argument('--config_path', type=str, default='Configs/synGhost_5.json')
     args = parser.parse_args()
     return args
 
@@ -145,7 +145,7 @@ def trainer(config, victim, target_dataset):
             if ckpt == 'best':
                 torch.save(model.state_dict(), model_checkpoint(ckpt, save_path))
     
-    if visualize:  # 可视化
+    if visualize:  
         visualize_save(config, normal_loss_all, hidden_states, poison_labels)
                 
     if ckpt == 'last':
@@ -247,13 +247,12 @@ def load_model(config):
     victim_config['path'] = config['train']['model_path']
     backdoor_model = PLMVictim(**victim_config)
     
-    # 冻结前K个Transformer层
-    # K = 9 # 设置为需要冻结的Transformer层数
+    # Consistent with LIST, freezing the syntactic layer explores attacks on performance upper bounds
     # for layer in backdoor_model.plm.bert.encoder.layer[:K]:
     #     for param in layer.parameters():
     #         param.requires_grad = False
         
-    # # 解冻需要更新的层
+    # update layer
     # for layer in backdoor_model.plm.bert.encoder.layer[K:]:
     #     for param in layer.parameters():
     #         param.requires_grad = True
