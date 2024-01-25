@@ -52,12 +52,16 @@ Sample Inspection (Onion, maxEntropy)
 cd code
 python ./synGhost_defend.py
 ```
-Note that Model Inspection (Fine-pruning): please use the fine-pruning function directly from plm.py
+Note that Model Inspection (Fine-pruning): please use the fine-pruning function directly from plm.py.
 
+### Baseline Implementation
+NeuBA, POR, and BadPre.....are all implemented from OpenBackdoor.
 
 ## Relax the dependency on the weaponization of Syntactic Ghost.
-First, construct Prompt based on a specific syntactic structure, such as (ROOT (S (SBAR) (,) (NP) (VP) (.)) EOP. Then generate clean instances and poisoned instances. Finally, CACC, ASR, and PPL were evaluated by the SynGhost. The instances and results are available on ./Code/LLMAttack.ipynb
+First, construct Prompt based on a specific syntactic structure, such as (ROOT (S (SBAR) (,) (NP) (VP) (.)) EOP. Then generate clean instances and poisoned instances. Finally, CACC, ASR, and PPL were evaluated by the SynGhost. The instances and results are available on ./Code/LLMAttack.ipynb.
 ### Example
 <div align="center">
 <img width="674" alt="image" src="https://github.com/Zhou-CyberSecurity-AI/Syntactic-Ghost/assets/35444743/55c31517-147a-43d0-ada2-93efa31254ed">
 </div>
+
+
