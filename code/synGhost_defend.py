@@ -25,7 +25,7 @@ from plm import PLMVictim
 
 sys.path.append('./')
 from Utils.log import get_logger
-from USyntacticBackdoor import wrap_dataset
+from s import wrap_dataset
 from USyntacticBackdoor import dimension_reduction, save_embedding
 from Utils.metrics import classification_metrics
 from Utils.visualize import result_visualizer
@@ -426,8 +426,28 @@ def defend_onion(victim, dataset, poison_dataset):
             continue
         poison_dataset[key] = defend.correct(model=victim, clean_data=dataset, poison_data=poison_dataset[key])
     return poison_dataset
-    
-    
+
+def defend_strip(victim, dataset, poison_dataset):
+    from defender.strip_defender import STRIPDefender
+    defend = STRIPDefender()
+    for key in poison_dataset:
+        if key == 'test-poison' and key == 'test-clean':
+            continue
+        preds, clean_entropy, poison_entropy = defend.detect(model=victim, clean_data=dataset, poison_data=poison_dataset[key])
+        if key == 'test-poison-template_10':
+            import pandas as pd
+            clean = pd.DataFrame(clean_entropy)
+            poison = pd.DataFrame(poison_entropy)
+            clean.to_csv('./Utils/plot/poison-clean-entropy.csv')
+            poison.to_csv("./Utils/plot/poison-poison-entropy.csv")
+        poison_dataset[key] = [(data[0], -1, 0) if pred == 1 else (data[0], data[1], 0) for pred, data in zip(preds, poison_dataset[key])]
+    return poison_dataset
+
+def defend_finr_pruning():
+    # please use PLM's fine-pruning function
+    pass
+
+
 def eval(model, target_dataset, config):
     metrics = ['accuracy']
     poisoned_dataset = poison(model, target_dataset, "eval", config)
