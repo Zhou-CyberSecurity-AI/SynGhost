@@ -18,7 +18,7 @@ class AgnewsProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "../OpenBackdoor/datasets/TextClassification/agnews"
+        self.path = "./dataset/TextClassification/agnews"
 
     def get_examples(self, data_dir, split):
         if data_dir is None:
@@ -43,7 +43,7 @@ class YahooProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "../OpenBackdoor/datasets/TextClassification/yahoo"
+        self.path = "./dataset/TextClassification/yahoo"
 
     def get_examples(self, data_dir, split):
         path = os.path.join(data_dir, "{}.csv".format(split))
@@ -68,7 +68,7 @@ class DBpediaProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./datasets/TextClassification/dbpedia"
+        self.path = "./dataset/TextClassification/dbpedia"
 
     def get_examples(self, data_dir, split):
         if data_dir is None:
@@ -96,7 +96,7 @@ class SST5Processor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("../OpenBackdoor/datasets/TextClassification/sst5")
+        self.data = load_from_disk("./dataset/TextClassification/sst5")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
@@ -117,7 +117,7 @@ class YelpProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("../OpenBackdoor/datasets/TextClassification/yelp")
+        self.data = load_from_disk("./datasets/TextClassification/yelp")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
