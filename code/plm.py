@@ -93,13 +93,11 @@ class PLMVictim(Victim):
             intermediate_input = self.plm.bert.encoder.layer[i].intermediate(hidden_state)
             intermediate_gelu_activations = torch.nn.functional.gelu(intermediate_input).abs()
             threshold = torch.kthvalue(intermediate_gelu_activations.flatten(), int(thresh_hold * intermediate_gelu_activations.numel())).values.item()
-            # for attention_head in layer.attention.self.children():
-            #     if isinstance(attention_head, torch.nn.modules.linear.Linear):
-            #         prune.custom_from_mask(attention_head, name='weight', mask=attention_head.weight.abs() > threshold)
             linear_layer_before_gelu = layer.intermediate.dense
             prune.custom_from_mask(linear_layer_before_gelu, name='weight', mask=linear_layer_before_gelu.weight.abs() > threshold)
         return self.plm
-    
+
+# LISM fine-tuned PLM with a three-layer fully-connected neural network
 class BERTFC(nn.Module):
     def __init__(self, config):
         super(BERTFC, self).__init__()
