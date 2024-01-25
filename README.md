@@ -28,6 +28,25 @@ cd synGhost_Generation
 python ./generate_by_openattack_imdb.py
 ```
 
+### SynGhost on PLMs
+Three constraints: primitive knowledge retention, uniform distribution of syntactic ghosts, and syntactic perception:
+```
+cd Code
+python ./synGhostToPLM.py
+```
+
+### SynGhost Activation
+Fine-tuning, PEFT (LoRA, Adapter, p-tuning, prompt-tuning)
+
+
+### SynGhost Defender
+Sample Inspection (Onion, maxEntropy)
+```
+
+```
+Model Inspection (Fine-pruning)
+```
+```
 
 ## Relax the dependency on the weaponization of Syntactic Ghost.
 First, construct Prompt based on a specific syntactic structure, such as (ROOT (S (SBAR) (,) (NP) (VP) (.)) EOP. Then generate clean instances and poisoned instances. Finally, CACC, ASR, and PPL were evaluated by the SynGhost. The instances and results are available on ./Code/LLMAttack.ipynb
