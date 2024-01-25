@@ -31,13 +31,20 @@ python ./generate_by_openattack_imdb.py
 ### SynGhost on PLMs
 Three constraints: primitive knowledge retention, uniform distribution of syntactic ghosts, and syntactic perception:
 ```
-cd Code
+cd code
 python ./synGhostToPLM.py
 ```
 
 ### SynGhost Activation
 Fine-tuning, PEFT (LoRA, Adapter, p-tuning, prompt-tuning)
-
+```
+cd code
+python ./synGhost_FineTuning.py 
+```
+```
+cd code
+python ./synGhost_peft.py 
+```
 
 ### SynGhost Defender
 Sample Inspection (Onion, maxEntropy)
