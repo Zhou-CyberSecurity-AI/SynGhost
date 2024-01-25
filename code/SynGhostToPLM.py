@@ -462,4 +462,4 @@ def main():
 if __name__ == "__main__":
     logger = get_logger("./Log", 'wikitext')
     main()
-    # nohup python ./Code/USyntacticBackdoor.py > ./Log/USyntacticBackdoor_sst2.log 2>&1 &
+    # nohup python ./Code/SynGhostToPLM.py > ./Log/synGhost.log 2>&1 &
