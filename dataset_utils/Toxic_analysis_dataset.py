@@ -17,7 +17,7 @@ class OlidProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("./Dataset/Toxic/olid")
+        self.data = load_from_disk("./dataset/Toxic/olid")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
@@ -37,7 +37,7 @@ class CovidProcessor(DataProcessor):
     """
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/Toxic/covid_fake_news-main"
+        self.path = "./dataset/Toxic/covid_fake_news-main"
     
     def get_examples(self, data_dir, split):
         examples = []
@@ -58,7 +58,7 @@ class JigsawProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/Toxic/jigsaw"
+        self.path = "./dataset/Toxic/jigsaw"
 
     def get_examples(self, data_dir, split):
         examples = []
@@ -81,7 +81,7 @@ class OffensevalProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/Toxic/offenseval"
+        self.path = "./dataset/Toxic/offenseval"
 
     def get_examples(self, data_dir, split):
         examples = []
@@ -104,7 +104,7 @@ class TwitterProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/Toxic/twitter"
+        self.path = "./dataset/Toxic/twitter"
 
     def get_examples(self, data_dir, split):
         examples = []
@@ -124,7 +124,7 @@ class HSOLProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/Toxic/hsol"
+        self.path = "./dataset/Toxic/hsol"
 
     def get_examples(self, data_dir, split):
         examples = []
