@@ -120,8 +120,8 @@ class GPT2LM():
     def __init__(self, parallel):
     
         self.device = torch.device('cuda:1') if torch.cuda.is_available() else torch.device('cpu')
-        self.tokenizer = transformers.GPT2TokenizerFast.from_pretrained("../OpenBackdoor/sjtu/gpt-2")
-        self.lm = transformers.GPT2LMHeadModel.from_pretrained("../OpenBackdoor/sjtu/gpt-2").to(self.device)
+        self.tokenizer = transformers.GPT2TokenizerFast.from_pretrained("gpt-2")
+        self.lm = transformers.GPT2LMHeadModel.from_pretrained("gpt-2").to(self.device)
         if parallel:
             self.lm = torch.nn.DataParallel(self.lm)
         self.tokenizer.pad_token = self.tokenizer.eos_token
