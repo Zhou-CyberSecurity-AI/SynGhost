@@ -13,7 +13,7 @@ class MnliProcessor(DataProcessor):
     # TODO Test needed
     def __init__(self):
         super().__init__()
-        self.path = "../OpenBackdoor/datasets/NLI/mnli"
+        self.path = "./dataset/NLI/mnli"
 
     def get_examples(self, data_dir, split):
         path = os.path.join(self.path, "{}.csv".format(split))
@@ -34,7 +34,7 @@ class QnliProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("../OpenBackdoor/datasets/NLI/qnli")
+        self.data = load_from_disk("./dataset/NLI/qnli")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
@@ -51,7 +51,7 @@ class RteProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("../OpenBackdoor/datasets/NLI/rte")
+        self.data = load_from_disk("./datasets/NLI/rte")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
