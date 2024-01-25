@@ -87,7 +87,7 @@ def poisoner(config, poison_dataset, mode):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config_path', type=str, default='Configs/USyntacticBackdoor_5.json')
+    parser.add_argument('--config_path', type=str, default='Configs/SynGhost_5.json')
     args = parser.parse_args()
     return args
 
@@ -219,7 +219,7 @@ def evaluate(model, ref_model, mlp, aware, eval_dataloader, metrics, epoch):
 
             aware_loss = 0
             ppoison_labels_ce = ppoison_labels - 1
-            for layer in range(10, 12):
+            for layer in range(6, 8):
                 cls_embeds_layer = poison_outputs.hidden_states[layer][:, 0, :]
                 cls_outputs_layer = mlp(cls_embeds_layer)
                 aware_loss += ce_d(cls_outputs_layer, ppoison_labels_ce.to(torch.long))
@@ -344,7 +344,7 @@ def train_one_epoch(model, ref_model, mlp, aware, optimizer, scheduler, epoch, e
 
         loss3 = 0
         ppoison_labels_ce = ppoison_labels - 1
-        for layer in range(10, 12):
+        for layer in range(6, 7):
             cls_embeds = poison_outputs.hidden_states[layer][:, 0, :]
             cls_outputs = mlp(cls_embeds)
             loss3 += ce_d(cls_outputs, ppoison_labels_ce.to(torch.long))
