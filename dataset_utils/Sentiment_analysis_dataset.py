@@ -20,7 +20,7 @@ class SST2Processor(DataProcessor):
     def __init__(self, flag=0):
         super().__init__()
         self.labels = ["negative", "positive"]
-        self.path = "./Dataset/SentimentAnalysis/SST-2/"
+        self.path = "./dataset/SentimentAnalysis/SST-2/"
         self.flag = 0
     
     def get_examples(self, data_dir, split):
@@ -46,7 +46,7 @@ class AmazonProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/SentimentAnalysis/amazon"
+        self.path = "./dataset/SentimentAnalysis/amazon"
 
     def get_examples(self, data_dir, split):
         examples = []
@@ -70,7 +70,7 @@ class ImdbProcessor(DataProcessor):
 
     def __init__(self):
         super().__init__()
-        self.path = "./Dataset/SentimentAnalysis/imdb"
+        self.path = "./dataset/SentimentAnalysis/imdb"
 
     def get_examples(self, data_dir, split):
         examples = []
