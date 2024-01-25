@@ -25,8 +25,8 @@ from plm import PLMVictim
 
 sys.path.append('./')
 from Utils.log import get_logger
-from Syntactic-Ghost import wrap_dataset
-from Syntactic-Ghost import dimension_reduction, save_embedding
+from Syntactic_Ghost import wrap_dataset
+from Syntactic_Ghost import dimension_reduction, save_embedding
 from Utils.metrics import classification_metrics
 from Utils.visualize import result_visualizer
 
