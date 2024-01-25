@@ -79,7 +79,8 @@ class PLMVictim(Victim):
     def save(self, path):
         self.plm.save_pretrained(path)
         self.tokenizer.save_pretrained(path)
-    
+
+    # Model Inspection
     def fine_prunying(self, input_data, thresh_hold):
         
         import torch.nn.utils.prune as prune
