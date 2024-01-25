@@ -13,9 +13,9 @@ sys.path.append('./')
 from Code.plm import PLMVictim
 from Code.USyntacticBackdoor_aware import get_dataloader, collate_fn
 
-class STRIPDefender(Defender):
+class maxEntropyDefender(Defender):
     r"""
-        Defender for `STRIP <https://arxiv.org/abs/1911.10312>`_
+        Defender for improved `STRIP <https://arxiv.org/abs/1911.10312>`_
         
     
     Args:
