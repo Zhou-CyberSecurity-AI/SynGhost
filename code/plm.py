@@ -140,18 +140,4 @@ class BERTLSTM(nn.Module):
         return output
 
 
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--config_path', type=str, default='Configs/USyntacticBackdoor_5.json')
-    args = parser.parse_args()
-    return args
- 
-if __name__ == '__main__':
-    args = parse_args()
-    with open(args.config_path, 'r', encoding='UTF-8') as f:
-        config = json.load(f)
-    victim_config = config['victim']
-    victim_config['type'] = "plm"
-    victim_config['path'] = config['train']['model_path']
-    bertfc = BERTFC(victim_config)
-    print(bertfc)
+
