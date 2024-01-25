@@ -27,8 +27,8 @@ from opendelta import AdapterModel, AutoDeltaConfig, AutoDeltaModel
 
 sys.path.append('./')
 from Utils.log import get_logger
-from USyntacticBackdoor import wrap_dataset
-from USyntacticBackdoor import dimension_reduction, save_embedding
+from Syntactic-Ghost import wrap_dataset
+from Syntactic-Ghost import dimension_reduction, save_embedding
 from Utils.metrics import classification_metrics
 from Utils.visualize import result_visualizer
 
