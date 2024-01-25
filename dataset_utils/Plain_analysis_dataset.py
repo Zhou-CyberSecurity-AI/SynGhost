@@ -22,7 +22,7 @@ class WikitextProcessor(DataProcessor):
         super().__init__()
         # self.data = load_dataset("wikitext", 'wikitext-103-v1')
         from datasets import load_dataset, load_from_disk
-        self.data = load_from_disk("./Dataset/wikitext/")
+        self.data = load_from_disk("./dataset/PlainText/wikitext/")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
@@ -45,7 +45,7 @@ class WebtextProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         
-        self.path = "./Dataset/PlainText/webtext"
+        self.path = "./dataset/PlainText/webtext"
 
     def get_examples(self, data_dir, split):
         import jsonlines
@@ -72,7 +72,7 @@ PUNCT_SYMBOLS = {',', '.', '!', '?', '-', '...', "'", '"', ':'}
 class CAGMProcessor(DataProcessor):
     def __init__(
         self,
-        data_path = "./Dataset/PlainText/webtext",
+        data_path = "./dataset/PlainText/webtext",
     ):
         super().__init__()
         self.path = data_path
