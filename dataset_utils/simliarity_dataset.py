@@ -14,7 +14,7 @@ class QqpProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("../OpenBackdoor/datasets/SimilarityAnalysis/qqp")
+        self.data = load_from_disk("./dataset/SimilarityAnalysis/qqp")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
@@ -32,7 +32,7 @@ class MrpcProcessor(DataProcessor):
     def __init__(self):
         super().__init__()
         from datasets import load_from_disk 
-        self.data = load_from_disk("../OpenBackdoor/datasets/SimilarityAnalysis/mrpc")
+        self.data = load_from_disk("./dataset/SimilarityAnalysis/mrpc")
 
     def get_examples(self, data_dir, split):
         if split == 'dev':
