@@ -7,7 +7,7 @@ SynGhost has the following contributions
 - <span style="color:black">To the best of our knowledge, $\mathtt{SynGhost}$ is the first method to reveal invisible backdoor harmfulness in pre-training. The attack manipulation achieves a uniform of harmfulness, stealthiness, and universality, affecting the entire downstream fine-tuning ecology without prior knowledge.</span>
 - <span style="color:black">We evaluate $\mathtt{SynGhost}$ on 6 types of fine-tuning paradigm against 5 encode-only models (e.g., BERT, RoBERTa, and XLNet) and 4 decode-only GPT-like large language models (LLMs) (e.g., GPT-2, GPT-neo-1.3B, and GPT-XL) and 17 real-world crucial tasks.  $\mathtt{SynGhost}$ gains a 93.81\% attack success rate (ASR) under 3.13\% clean performance sucrifice. Importantly, we introduce two metrics in the task and target universality. $\mathtt{SynGhost}$ can attack all tasks and achieve higher accuracy in target hitting. Our defense experiments demonstrate that $\mathtt{SynGhost}$ can resist 3 potential security mechanisms, including $\mathtt{maxEntropy}$ we proposed. Moreover, internal mechanism analyses (e.g. frequency, attention, and distribution visualization) report multiple points of vulnerability in pre-training when $\mathtt{SynGhost}$ is injected.</span>
 <div align="center">
-<img width="661" alt="image" src="https://github.com/Zhou-CyberSecurity-AI/Syntactic_Ghost/blob/main/utlis/pipeline.pdf">
+<img width="661" alt="image" src="https://github.com/Zhou-CyberSecurity-AI/Syntactic_Ghost/blob/main/utlis/synGhost.jpg">
 </div>
 
 ## Installation
