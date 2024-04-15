@@ -1,5 +1,5 @@
 # Syntactic-Ghost (SynGhost)
-Syntactic Ghost: an imperceptible general-purpose backdoor attacks on pre-trained language models that enables insidious PLM backdoors to be generic, effective, and stealthy.
+SynGhost: Imperceptible and Universal Backdoor Attack Against Pre-training
 
 ## Contributions & Characteristics
 SynGhost has the following contributions
