@@ -1,5 +1,5 @@
 # Syntactic-Ghost (SynGhost)
-SynGhost: Imperceptible and Universal Backdoor Attack Against Pre-training
+SynGhost: Imperceptible and Universal Task-agnostic Backdoor Attack in Pre-trained Language Models
 
 ## Contributions & Characteristics
 SynGhost has the following contributions
