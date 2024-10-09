@@ -1,11 +1,11 @@
 # Syntactic-Ghost (SynGhost)
-SynGhost: Imperceptible and Universal Task-agnostic Backdoor Attack in Pre-trained Language Models
+SynGhost: Invisible and Universal Task-agnostic Backdoor Attack via Syntactic Transfer
 
 ## Contributions & Characteristics
 SynGhost has the following contributions
-- <span style="color:black">We propose $\mathtt{SynGhost}$, an imperceptible general-purpose backdoor against pre-training that simultaneously achieves attack stealthiness in terms of semantic preservation and improves attack universality using contrastive learning in terms of adaptive creating alignment mechanisms. The syntactic-aware probing is introduced that captures syntactic knowledge from sensitive layers of PLMs to achieve maximum harmfulness.</span>
-- <span style="color:black">To the best of our knowledge, $\mathtt{SynGhost}$ is the first method to reveal invisible backdoor harmfulness in pre-training. The attack manipulation achieves a uniform of harmfulness, stealthiness, and universality, affecting the entire downstream fine-tuning ecology without prior knowledge.</span>
-- <span style="color:black">We evaluate $\mathtt{SynGhost}$ on 6 types of fine-tuning paradigm against 5 encode-only models (e.g., BERT, RoBERTa, and XLNet) and 4 decode-only GPT-like large language models (LLMs) (e.g., GPT-2, GPT-neo-1.3B, and GPT-XL) and 17 real-world crucial tasks.  $\mathtt{SynGhost}$ gains a 93.81\% attack success rate (ASR) under 3.13\% clean performance sucrifice. Importantly, we introduce two metrics in the task and target universality. $\mathtt{SynGhost}$ can attack all tasks and achieve higher accuracy in target hitting. Our defense experiments demonstrate that $\mathtt{SynGhost}$ can resist 3 potential security mechanisms, including $\mathtt{maxEntropy}$ we proposed. Moreover, internal mechanism analyses (e.g. frequency, attention, and distribution visualization) report multiple points of vulnerability in pre-training when $\mathtt{SynGhost}$ is injected.</span>
+- <span style="color:black">To mitigate the risks of existing task-agnostic backdoors, we propose $\mathtt{maxEntropy}$, an entropy-based poisoning filter that accurately detects poisoned samples.</span>
+- <span style="color:black">To further expose the vulnerabilities in PLMs, we propose $\mathtt{SynGhost}$, an invisible and universal task-agnostic backdoor that naturally exploits multiple syntactic triggers to adaptively embed backdoors into the pre-training space based on contrastive learning and syntax awareness.</span>
+- <span style="color:black">We evaluate $\mathtt{SynGhost}$ on the GLUE benchmark across two fine-tuning paradigms and PLMs with different architecture and parameter volumes.  $\mathtt{SynGhost}$ achieves predefined objectives and can resist three potential defenses. Two new metrics show that $\mathtt{SynGhost}$ is universal. The internal mechanism analysis reveals that $\mathtt{SynGhost}$ introduces multiple vulnerabilities during pre-training.</span>
 <div align="center">
 <img width="661" alt="image" src="https://github.com/Zhou-CyberSecurity-AI/Syntactic_Ghost/blob/main/utlis/synGhost.jpg">
 </div>
